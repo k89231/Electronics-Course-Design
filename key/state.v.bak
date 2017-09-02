@@ -1,0 +1,145 @@
+module charing(clk,reset,in1,in2,in3,in4,in5,in6,in7,in8,in9,in11,ok,out,scan,start);
+//module charing(clk,in,out,scan);
+input reset,in1,in2,in3,in4,in5,in6,in7,in8,in9,in11,ok,clk,start;
+output reg[6:0] out;//七段译码器的输出
+output reg[3:0] scan;//扫描显示的输出
+reg [3:0] data;                        //扫描时记录
+reg [1:0] count;                         //扫描计数
+reg [3:0] T1=0;                        //存储输入的数
+reg [3:0] T2=0;
+parameter  s0=0,s1=1,s2=2,s3=3,s4=4;//一共5个状态
+reg [2:0] state=s4;			//初始状态为0
+reg flag=0;		//确认信号
+reg switch =0;				
+reg [10:0] secten=0;				//开始信号
+reg [8:0] temp=0;
+wire [7:0] out1;                        //记录前两个数
+reg [7:0] out2;                         //记录后两个数
+assign out1[7:4]=T1[3:0];               
+assign out1[3:0]=T2[3:0];
+reg change;
+
+
+ 
+ 
+ 
+always @(posedge clk)
+begin
+ temp=temp+1;
+ if (change==1) begin secten=0; end
+ secten=secten+1;
+end
+always @(posedge clk)
+begin
+   if(clk)
+   begin
+case(state)
+//-------------------------------------输入第一个数字--------------------------------------------
+   s0:                             
+	begin
+		change=0;
+	    if(reset==1)   begin  T1=0; T2=0;  out2=0; change=1;state<=s0;  end  
+       else if(ok==1)  begin  flag=1;  state<=s2;              end 
+       else if(in1==1) begin T2=4'b0001;out2=2*T2; state<=s1;  end   
+		 else if(in2==1) begin T2=4'b0010; out2=2*T2;state<=s1;  end	 
+		 else if(in3==1) begin T2=4'b0011; out2=2*T2;state<=s1;  end    
+       else if(in4==1) begin T2=4'b0100; out2=2*T2;state<=s1;  end
+	    else if(in5==1) begin T2=4'b0101;out2[3:0]=T2*2-10; out2[7:4]=T1*2+1;state<=s1; end
+       else if(in6==1) begin T2=4'b0110;out2[3:0]=T2*2-10; out2[7:4]=T1*2+1;state<=s1; end
+		 else if(in7==1) begin T2=4'b0111;out2[3:0]=T2*2-10; out2[7:4]=T1*2+1;state<=s1; end     
+		 else if(in8==1) begin T2=4'b1000;out2[3:0]=T2*2-10; out2[7:4]=T1*2+1;state<=s1; end
+	    else if(in9==1) begin T2=4'b1001;out2[3:0]=T2*2-10; out2[7:4]=T1*2+1;state<=s1; end
+	    else if(in11==1) begin T2=4'b0000; out2=2*T1;state<=s1;  end
+		 else if(secten==11'b11111111111) begin state<=s4; end
+	end
+//-----------------------------------输入第二个数时的状态--------------------------------------------------
+   s1:                                          
+	begin   
+	   if(reset==1)      begin  T1=0; T2=0;  out2=0;change=1; state<=s0;       end  
+      else if(ok==1)     begin  flag=1;   state<=s2;                  end 
+      else if(T2>=2&&T1==0&&(in1!=0||in2!=0||in3!=0||in4!=0||in5!=0||in6!=0||in7!=0||in8!=0||in9!=0||in11!=0))
+		//else if(T2>=2&&T1==0&&(in==1||in==2||in==3||in==4||in==5||in==6||in==7||in==8||in==9||in==0))
+		      begin T1=2; T2=0; out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3;end
+	   else if(T1==2&&(in1!=0||in2!=0||in3!=0||in4!=0||in5!=0||in6!=0||in7!=0||in8!=0||in9!=0||in11!=0))
+		//else if(T1==2&&(in==1||in==2||in==3||in==4||in==5||in==6||in==7||in==8||in==9||in==0))
+	         begin T1=2; T2=0; out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3;end
+	   else if(T2<2)
+	   begin
+	     if(in1==1)       begin T1=T2;T2=4'b0001;out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3; end
+	     else if(in2==1)  begin T1=T2;T2=4'b0010;out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3; end
+        else if(in3==1)  begin T1=T2;T2=4'b0011;out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3; end
+        else if(in4==1)  begin T1=T2;T2=4'b0100;out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3; end
+ 	     else if(in5==1)  begin T1=T2;T2=4'b0101;out2[3:0]=T2*2-10;out2[7:4]=T1*2+1;state<=s3; end
+	     else if(in6==1)  begin T1=T2;T2=4'b0110;out2[3:0]=T2*2-10;out2[7:4]=T1*2+1;state<=s3; end
+ 	     else if(in7==1)  begin T1=T2;T2=4'b0111;out2[3:0]=T2*2-10;out2[7:4]=T1*2+1;state<=s3; end
+ 	     else if(in8==1)  begin T1=T2;T2=4'b1000;out2[3:0]=T2*2-10;out2[7:4]=T1*2+1;state<=s3; end
+	     else if(in9==1)  begin T1=T2;T2=4'b1001;out2[3:0]=T2*2-10;out2[7:4]=T1*2+1;state<=s3; end
+        else if(in11==1) begin T1=T2;T2=4'b0000;out2[7:4]=2*T1;out2[3:0]=2*T2;state<=s3; end
+		end
+	end
+//------------------------------两位数字输入完之后的确认状态-----------------------------------
+	s3:                       
+	begin
+	 if(reset==1)    begin  T1=0;  T2=0;  out2=0; change=1;state<=s0;  end
+    else if(ok==1)   begin  flag=1;   state<=s2;              end 
+	end
+//-----------------------------------减法状态----------------------------------------------
+   s2:                                                  
+	begin
+	    if(temp==9'b111111111&&flag==1&&(T1!=0||T2!=0))	
+            begin
+	    	         if(out2[3:0]!=0)  out2[3:0]=out2[3:0]-1;  
+	               else if(out2[3:0]==0)  begin  out2[3:0]=4'b1001;out2[7:4]=out2[7:4]-1;end
+            end
+	    else if(out2[3:0]==0&&out2[7:4]==0)begin  T1=0; T2=0;flag=0; change=1;state<=s0;end	        
+  end
+ //-----------------------------------初始状态----------------------------------------------
+ s4:                       
+	begin
+	switch=0;
+	 if (start==1)  begin T1=0;  T2=0;  out2=0; change=1;switch=1;state<=s0; end
+	 else begin switch=0; end
+	end
+endcase
+end
+end
+
+
+//------------------数码管扫描-------------------
+always@(posedge clk)
+begin 
+   count<=count+1;
+end
+
+always@(count)
+begin
+
+if (switch==1)
+begin
+   case(count[1:0])
+      2'b00:begin data<=out1[7:4];scan<='b1000;end
+      2'b01:begin data<=out1[3:0];scan<='b0100;end
+      2'b10:begin data<=out2[7:4];scan<='b0010;end
+      2'b11:begin data<=out2[3:0];scan<='b0001;end
+      default:begin data<='bx;scan<='bx;end
+   endcase
+end
+
+else begin data<=out1[7:4];scan<='b0000; end
+//------------------七段译码-------------------
+   case(data[3:0])
+     4'b0000:out[6:0]<=7'b1111110;
+     4'b0001:out[6:0]<=7'b0110000;
+     4'b0010:out[6:0]<=7'b1101101;
+     4'b0011:out[6:0]<=7'b1111001;
+     4'b0100:out[6:0]<=7'b0110011;
+     4'b0101:out[6:0]<=7'b1011011;
+     4'b0110:out[6:0]<=7'b1011111;
+     4'b0111:out[6:0]<=7'b1110000;
+     4'b1000:out[6:0]<=7'b1111111;
+     4'b1001:out[6:0]<=7'b1111011;
+     default:out[6:0]<='bx;
+   endcase
+	
+end
+endmodule
