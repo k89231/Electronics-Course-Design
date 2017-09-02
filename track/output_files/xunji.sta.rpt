@@ -1,0 +1,1101 @@
+TimeQuest Timing Analyzer report for xunji
+Sat Aug 12 13:56:03 2017
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clk'
+ 24. Fast Model Hold: 'clk'
+ 25. Fast Model Minimum Pulse Width: 'clk'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                        ;
++--------------------+-----------------------------------------------------+
+; Quartus II Version ; Version 13.0.0 Build 156 04/24/2013 SJ Full Version ;
+; Revision Name      ; xunji                                               ;
+; Device Family      ; Cyclone II                                          ;
+; Device Name        ; EP2C5Q208C7                                         ;
+; Timing Models      ; Final                                               ;
+; Delay Model        ; Combined                                            ;
+; Rise/Fall Delays   ; Unavailable                                         ;
++--------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 218.72 MHz ; 218.72 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -3.572 ; -144.432      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.445 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.631 ; -62.731               ;
++-------+--------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                                                          ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                               ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.572 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.595      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.439 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.462      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.436 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.459      ;
+; -3.427 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 4.466      ;
+; -3.409 ; xunji:inst|steering_PWM_counter_out[7]  ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.000      ; 4.447      ;
+; -3.372 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; 0.001      ; 4.411      ;
+; -3.372 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.411      ;
+; -3.372 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.411      ;
+; -3.320 ; xunji:inst|steering_PWM_counter_out[16] ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.000      ; 4.358      ;
+; -3.294 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 4.333      ;
+; -3.291 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 4.330      ;
+; -3.279 ; xunji:inst|steering_PWM_counter[12]     ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.016      ; 4.333      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.243 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.281      ;
+; -3.239 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; 0.001      ; 4.278      ;
+; -3.239 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.278      ;
+; -3.239 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.278      ;
+; -3.236 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; 0.001      ; 4.275      ;
+; -3.236 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.275      ;
+; -3.236 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; 0.001      ; 4.275      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.208 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.231      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.174 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; 0.000      ; 4.212      ;
+; -3.163 ; xunji:inst|steering_PWM_counter[11]     ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.016      ; 4.217      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.157 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.180      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.132 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 4.155      ;
+; -3.098 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.016      ; 4.152      ;
+; -3.086 ; xunji:inst|start5[11]                   ; xunji:inst|right_wheel_PWM_OUT          ; clk          ; clk         ; 1.000        ; 0.001      ; 4.125      ;
+; -3.063 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 4.102      ;
+; -3.053 ; xunji:inst|start5[4]                    ; xunji:inst|start5[8]                    ; clk          ; clk         ; 1.000        ; 0.001      ; 4.092      ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                                                  ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; xunji:inst|flag                     ; xunji:inst|flag                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[0]                ; xunji:inst|start5[0]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[1]                ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[2]                ; xunji:inst|start5[2]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[3]                ; xunji:inst|start5[3]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[5]                ; xunji:inst|start5[5]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[6]                ; xunji:inst|start5[6]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; xunji:inst|start5[8]                ; xunji:inst|start5[8]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.731      ;
+; 0.629 ; xunji:inst|start5[13]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.915      ;
+; 0.639 ; xunji:inst|steering_PWM_counter[19] ; xunji:inst|steering_PWM_counter[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.925      ;
+; 0.645 ; xunji:inst|wheel_PWM_OUT[9]         ; xunji:inst|wheel_PWM_OUT[9]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.931      ;
+; 0.796 ; xunji:inst|start5[6]                ; xunji:inst|start5[7]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.082      ;
+; 0.972 ; xunji:inst|start5[9]                ; xunji:inst|start5[9]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.258      ;
+; 0.977 ; xunji:inst|start5[11]               ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; xunji:inst|start5[12]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; xunji:inst|steering_PWM_counter[1]  ; xunji:inst|steering_PWM_counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.263      ;
+; 0.980 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.266      ;
+; 0.983 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.269      ;
+; 0.983 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.269      ;
+; 0.984 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.270      ;
+; 0.986 ; xunji:inst|flag                     ; xunji:inst|start5[0]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.272      ;
+; 0.988 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.274      ;
+; 0.988 ; xunji:inst|steering_PWM_counter[9]  ; xunji:inst|steering_PWM_counter[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.274      ;
+; 0.990 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.276      ;
+; 0.992 ; xunji:inst|steering_PWM_counter[17] ; xunji:inst|steering_PWM_counter[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.278      ;
+; 0.993 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.279      ;
+; 0.993 ; xunji:inst|start5[0]                ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.279      ;
+; 0.995 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.281      ;
+; 0.996 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.282      ;
+; 1.006 ; xunji:inst|wheel_PWM_OUT[7]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.292      ;
+; 1.007 ; xunji:inst|start5[10]               ; xunji:inst|start5[10]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.293      ;
+; 1.011 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[4]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.297      ;
+; 1.014 ; xunji:inst|steering_PWM_counter[18] ; xunji:inst|steering_PWM_counter[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.300      ;
+; 1.018 ; xunji:inst|wheel_PWM_OUT[8]         ; xunji:inst|wheel_PWM_OUT[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.304      ;
+; 1.018 ; xunji:inst|steering_PWM_counter[0]  ; xunji:inst|steering_PWM_counter[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.304      ;
+; 1.021 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.307      ;
+; 1.030 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.316      ;
+; 1.031 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.317      ;
+; 1.032 ; xunji:inst|wheel_PWM_OUT[6]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.318      ;
+; 1.038 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[5]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.324      ;
+; 1.046 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.332      ;
+; 1.046 ; xunji:inst|steering_PWM_counter[15] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.332      ;
+; 1.047 ; xunji:inst|steering_PWM_counter[16] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.333      ;
+; 1.194 ; xunji:inst|wheel_PWM_OUT[2]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.480      ;
+; 1.200 ; xunji:inst|wheel_PWM_OUT[3]         ; xunji:inst|wheel_PWM_OUT[3]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.486      ;
+; 1.217 ; xunji:inst|start5[2]                ; xunji:inst|start5[4]                ; clk          ; clk         ; 0.000        ; -0.001     ; 1.502      ;
+; 1.225 ; xunji:inst|start5[5]                ; xunji:inst|start5[7]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.511      ;
+; 1.241 ; xunji:inst|steering_PWM_counter[8]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.527      ;
+; 1.294 ; xunji:inst|flag                     ; xunji:inst|right_wheel_PWM_OUT      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.580      ;
+; 1.404 ; xunji:inst|start5[9]                ; xunji:inst|start5[10]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.690      ;
+; 1.409 ; xunji:inst|start5[12]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.695      ;
+; 1.409 ; xunji:inst|start5[11]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.695      ;
+; 1.412 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.698      ;
+; 1.415 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.701      ;
+; 1.415 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.701      ;
+; 1.416 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.702      ;
+; 1.420 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.706      ;
+; 1.422 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.708      ;
+; 1.425 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.711      ;
+; 1.427 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.713      ;
+; 1.428 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.714      ;
+; 1.440 ; xunji:inst|start5[10]               ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.726      ;
+; 1.443 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[5]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.729      ;
+; 1.447 ; xunji:inst|steering_PWM_counter[18] ; xunji:inst|steering_PWM_counter[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.733      ;
+; 1.448 ; xunji:inst|steering_PWM_counter[0]  ; xunji:inst|steering_PWM_counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.734      ;
+; 1.451 ; xunji:inst|steering_engine_PWM_OUT  ; xunji:inst|steering_engine_PWM_OUT  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.737      ;
+; 1.451 ; xunji:inst|wheel_PWM_OUT[8]         ; xunji:inst|wheel_PWM_OUT[9]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.737      ;
+; 1.454 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.740      ;
+; 1.463 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.749      ;
+; 1.464 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.750      ;
+; 1.465 ; xunji:inst|wheel_PWM_OUT[6]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.751      ;
+; 1.471 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.757      ;
+; 1.479 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.765      ;
+; 1.479 ; xunji:inst|steering_PWM_counter[15] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.765      ;
+; 1.480 ; xunji:inst|steering_PWM_counter[16] ; xunji:inst|steering_PWM_counter[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.766      ;
+; 1.484 ; xunji:inst|start5[9]                ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.770      ;
+; 1.489 ; xunji:inst|start5[11]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.775      ;
+; 1.492 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.778      ;
+; 1.495 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.781      ;
+; 1.495 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.781      ;
+; 1.496 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.782      ;
+; 1.500 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.786      ;
+; 1.502 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.788      ;
+; 1.505 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[3]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.791      ;
+; 1.507 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.793      ;
+; 1.508 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.794      ;
+; 1.510 ; xunji:inst|steering_PWM_counter[1]  ; xunji:inst|steering_PWM_counter[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.796      ;
+; 1.520 ; xunji:inst|start5[10]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 1.806      ;
+; 1.523 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.809      ;
+; 1.525 ; xunji:inst|steering_PWM_counter[17] ; xunji:inst|steering_PWM_counter[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.811      ;
+; 1.526 ; xunji:inst|start5[3]                ; xunji:inst|start5[4]                ; clk          ; clk         ; 0.000        ; -0.001     ; 1.811      ;
+; 1.531 ; xunji:inst|flag                     ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.817      ;
+; 1.534 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.820      ;
+; 1.535 ; xunji:inst|steering_PWM_counter[9]  ; xunji:inst|steering_PWM_counter[10] ; clk          ; clk         ; 0.000        ; -0.015     ; 1.806      ;
+; 1.539 ; xunji:inst|wheel_PWM_OUT[7]         ; xunji:inst|wheel_PWM_OUT[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.825      ;
+; 1.543 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.829      ;
+; 1.544 ; xunji:inst|start5[5]                ; xunji:inst|start5[6]                ; clk          ; clk         ; 0.000        ; 0.000      ; 1.830      ;
+; 1.544 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.830      ;
+; 1.551 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 1.837      ;
+; 1.559 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.845      ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                                    ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                  ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clk   ; Rise       ; clk                                     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|flag                         ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|flag                         ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|right_wheel_PWM_OUT          ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|right_wheel_PWM_OUT          ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[0]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[10]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[10]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[11]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[11]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[12]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[12]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[13]                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[13]                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[1]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[2]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[2]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[3]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[3]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[4]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[4]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[5]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[5]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[6]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[6]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[7]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[7]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[8]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[8]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[9]                    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[9]                    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[10]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[10]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[11]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[11]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[12]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[12]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[13]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[13]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[14]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[14]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[15]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[15]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[16]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[16]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[17]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[17]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[18]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[18]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[19]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[19]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[1]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[1]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[2]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[2]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[3]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[3]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[5]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[5]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[6]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[6]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[7]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[7]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[8]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[8]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[9]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[9]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[16] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[16] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[4]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[7]  ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_engine_PWM_OUT      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_engine_PWM_OUT      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[0]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[1]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[2]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[3]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[4]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[4]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[5]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[5]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[6]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[6]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[7]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[7]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[8]             ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[8]             ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[9]             ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; midyou    ; clk        ; 7.784 ; 7.784 ; Rise       ; clk             ;
+; midzuo    ; clk        ; 7.694 ; 7.694 ; Rise       ; clk             ;
+; tail      ; clk        ; 6.615 ; 6.615 ; Rise       ; clk             ;
+; you       ; clk        ; 7.696 ; 7.696 ; Rise       ; clk             ;
+; zuo       ; clk        ; 7.545 ; 7.545 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; midyou    ; clk        ; -4.320 ; -4.320 ; Rise       ; clk             ;
+; midzuo    ; clk        ; -4.309 ; -4.309 ; Rise       ; clk             ;
+; tail      ; clk        ; -4.592 ; -4.592 ; Rise       ; clk             ;
+; you       ; clk        ; -4.280 ; -4.280 ; Rise       ; clk             ;
+; zuo       ; clk        ; -4.076 ; -4.076 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 7.636 ; 7.636 ; Rise       ; clk             ;
+; right     ; clk        ; 7.909 ; 7.909 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 7.636 ; 7.636 ; Rise       ; clk             ;
+; right     ; clk        ; 7.909 ; 7.909 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -0.810 ; -27.032       ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -51.380               ;
++-------+--------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                                                          ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                               ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.810 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.827      ;
+; -0.747 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.778      ;
+; -0.747 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.778      ;
+; -0.747 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.778      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.740 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.757      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.737 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.754      ;
+; -0.677 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.708      ;
+; -0.677 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.708      ;
+; -0.677 ; xunji:inst|steering_PWM_counter[1]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.708      ;
+; -0.674 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[16] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.705      ;
+; -0.674 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.705      ;
+; -0.674 ; xunji:inst|steering_PWM_counter[2]      ; xunji:inst|steering_PWM_counter_out[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.705      ;
+; -0.658 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.690      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.650 ; xunji:inst|steering_PWM_counter[13]     ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.682      ;
+; -0.649 ; xunji:inst|steering_PWM_counter_out[7]  ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 1.682      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.627 ; xunji:inst|steering_PWM_counter[4]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.644      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.625 ; xunji:inst|steering_PWM_counter[10]     ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; 0.000      ; 1.657      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.617 ; xunji:inst|steering_PWM_counter[3]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.634      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[10]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[11]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[12]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[13]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[14]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[15]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[17]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[18]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[19]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.610 ; xunji:inst|steering_PWM_counter[5]      ; xunji:inst|steering_PWM_counter[16]     ; clk          ; clk         ; 1.000        ; -0.015     ; 1.627      ;
+; -0.606 ; xunji:inst|steering_PWM_counter_out[16] ; xunji:inst|steering_engine_PWM_OUT      ; clk          ; clk         ; 1.000        ; 0.001      ; 1.639      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[0]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[1]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[2]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[3]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[4]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[5]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[6]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
+; -0.594 ; xunji:inst|steering_PWM_counter[0]      ; xunji:inst|steering_PWM_counter[7]      ; clk          ; clk         ; 1.000        ; 0.000      ; 1.626      ;
++--------+-----------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                                                  ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; xunji:inst|flag                     ; xunji:inst|flag                     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[0]                ; xunji:inst|start5[0]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[1]                ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[2]                ; xunji:inst|start5[2]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[3]                ; xunji:inst|start5[3]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[5]                ; xunji:inst|start5[5]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[6]                ; xunji:inst|start5[6]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; xunji:inst|start5[8]                ; xunji:inst|start5[8]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.243 ; xunji:inst|start5[13]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.395      ;
+; 0.251 ; xunji:inst|wheel_PWM_OUT[9]         ; xunji:inst|wheel_PWM_OUT[9]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.403      ;
+; 0.251 ; xunji:inst|steering_PWM_counter[19] ; xunji:inst|steering_PWM_counter[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.403      ;
+; 0.304 ; xunji:inst|start5[6]                ; xunji:inst|start5[7]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.456      ;
+; 0.358 ; xunji:inst|start5[9]                ; xunji:inst|start5[9]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.510      ;
+; 0.361 ; xunji:inst|start5[11]               ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; xunji:inst|start5[12]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; xunji:inst|steering_PWM_counter[1]  ; xunji:inst|steering_PWM_counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.513      ;
+; 0.363 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.515      ;
+; 0.364 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[0]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.516      ;
+; 0.364 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.516      ;
+; 0.364 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.516      ;
+; 0.366 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.518      ;
+; 0.367 ; xunji:inst|start5[10]               ; xunji:inst|start5[10]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; xunji:inst|steering_PWM_counter[9]  ; xunji:inst|steering_PWM_counter[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.519      ;
+; 0.368 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.520      ;
+; 0.370 ; xunji:inst|flag                     ; xunji:inst|start5[0]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.522      ;
+; 0.371 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; xunji:inst|start5[0]                ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; xunji:inst|steering_PWM_counter[17] ; xunji:inst|steering_PWM_counter[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.524      ;
+; 0.373 ; xunji:inst|wheel_PWM_OUT[8]         ; xunji:inst|wheel_PWM_OUT[8]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.525      ;
+; 0.373 ; xunji:inst|steering_PWM_counter[18] ; xunji:inst|steering_PWM_counter[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.525      ;
+; 0.374 ; xunji:inst|steering_PWM_counter[0]  ; xunji:inst|steering_PWM_counter[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.526      ;
+; 0.377 ; xunji:inst|wheel_PWM_OUT[7]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.529      ;
+; 0.377 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.529      ;
+; 0.379 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[4]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.531      ;
+; 0.379 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.531      ;
+; 0.380 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.532      ;
+; 0.381 ; xunji:inst|wheel_PWM_OUT[6]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.533      ;
+; 0.384 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[5]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.536      ;
+; 0.388 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.540      ;
+; 0.389 ; xunji:inst|steering_PWM_counter[15] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.541      ;
+; 0.390 ; xunji:inst|steering_PWM_counter[16] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.542      ;
+; 0.436 ; xunji:inst|wheel_PWM_OUT[2]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.588      ;
+; 0.441 ; xunji:inst|wheel_PWM_OUT[3]         ; xunji:inst|wheel_PWM_OUT[3]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.593      ;
+; 0.446 ; xunji:inst|start5[2]                ; xunji:inst|start5[4]                ; clk          ; clk         ; 0.000        ; -0.001     ; 0.597      ;
+; 0.452 ; xunji:inst|steering_PWM_counter[8]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.604      ;
+; 0.456 ; xunji:inst|start5[5]                ; xunji:inst|start5[7]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.608      ;
+; 0.486 ; xunji:inst|flag                     ; xunji:inst|right_wheel_PWM_OUT      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.638      ;
+; 0.496 ; xunji:inst|start5[9]                ; xunji:inst|start5[10]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.648      ;
+; 0.499 ; xunji:inst|start5[12]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; xunji:inst|start5[11]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.651      ;
+; 0.501 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.653      ;
+; 0.502 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[1]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.654      ;
+; 0.502 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.654      ;
+; 0.502 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.654      ;
+; 0.504 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.656      ;
+; 0.505 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.506 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.658      ;
+; 0.507 ; xunji:inst|start5[10]               ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.659      ;
+; 0.509 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.661      ;
+; 0.510 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.662      ;
+; 0.513 ; xunji:inst|wheel_PWM_OUT[8]         ; xunji:inst|wheel_PWM_OUT[9]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.665      ;
+; 0.513 ; xunji:inst|steering_PWM_counter[18] ; xunji:inst|steering_PWM_counter[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.665      ;
+; 0.514 ; xunji:inst|steering_PWM_counter[0]  ; xunji:inst|steering_PWM_counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.666      ;
+; 0.517 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.669      ;
+; 0.517 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[5]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.669      ;
+; 0.519 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.671      ;
+; 0.520 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.672      ;
+; 0.521 ; xunji:inst|wheel_PWM_OUT[6]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.673      ;
+; 0.524 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.676      ;
+; 0.528 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.680      ;
+; 0.529 ; xunji:inst|steering_PWM_counter[15] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.681      ;
+; 0.530 ; xunji:inst|steering_PWM_counter[16] ; xunji:inst|steering_PWM_counter[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.682      ;
+; 0.531 ; xunji:inst|start5[9]                ; xunji:inst|start5[11]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.683      ;
+; 0.532 ; xunji:inst|steering_engine_PWM_OUT  ; xunji:inst|steering_engine_PWM_OUT  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.684      ;
+; 0.534 ; xunji:inst|start5[11]               ; xunji:inst|start5[13]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.686      ;
+; 0.536 ; xunji:inst|steering_PWM_counter[10] ; xunji:inst|steering_PWM_counter[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.688      ;
+; 0.537 ; xunji:inst|wheel_PWM_OUT[0]         ; xunji:inst|wheel_PWM_OUT[2]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.689      ;
+; 0.537 ; xunji:inst|steering_PWM_counter[3]  ; xunji:inst|steering_PWM_counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.689      ;
+; 0.537 ; xunji:inst|steering_PWM_counter[5]  ; xunji:inst|steering_PWM_counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.689      ;
+; 0.539 ; xunji:inst|steering_PWM_counter[7]  ; xunji:inst|steering_PWM_counter[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.691      ;
+; 0.540 ; xunji:inst|steering_PWM_counter[11] ; xunji:inst|steering_PWM_counter[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.692      ;
+; 0.541 ; xunji:inst|wheel_PWM_OUT[1]         ; xunji:inst|wheel_PWM_OUT[3]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.693      ;
+; 0.542 ; xunji:inst|start5[10]               ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.694      ;
+; 0.544 ; xunji:inst|steering_PWM_counter[12] ; xunji:inst|steering_PWM_counter[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.696      ;
+; 0.545 ; xunji:inst|steering_PWM_counter[14] ; xunji:inst|steering_PWM_counter[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.697      ;
+; 0.552 ; xunji:inst|steering_PWM_counter[2]  ; xunji:inst|steering_PWM_counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.552 ; xunji:inst|wheel_PWM_OUT[4]         ; xunji:inst|wheel_PWM_OUT[6]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.704      ;
+; 0.554 ; xunji:inst|steering_PWM_counter[1]  ; xunji:inst|steering_PWM_counter[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.706      ;
+; 0.554 ; xunji:inst|steering_PWM_counter[4]  ; xunji:inst|steering_PWM_counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.706      ;
+; 0.555 ; xunji:inst|steering_PWM_counter[6]  ; xunji:inst|steering_PWM_counter[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 0.707      ;
+; 0.557 ; xunji:inst|start5[3]                ; xunji:inst|start5[4]                ; clk          ; clk         ; 0.000        ; -0.001     ; 0.708      ;
+; 0.559 ; xunji:inst|wheel_PWM_OUT[5]         ; xunji:inst|wheel_PWM_OUT[7]         ; clk          ; clk         ; 0.000        ; 0.000      ; 0.711      ;
+; 0.563 ; xunji:inst|flag                     ; xunji:inst|start5[1]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.715      ;
+; 0.563 ; xunji:inst|steering_PWM_counter[13] ; xunji:inst|steering_PWM_counter[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.715      ;
+; 0.564 ; xunji:inst|start5[5]                ; xunji:inst|start5[6]                ; clk          ; clk         ; 0.000        ; 0.000      ; 0.716      ;
+; 0.564 ; xunji:inst|steering_PWM_counter[15] ; xunji:inst|steering_PWM_counter[17] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.716      ;
+; 0.565 ; xunji:inst|steering_PWM_counter[17] ; xunji:inst|steering_PWM_counter[18] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.717      ;
+; 0.566 ; xunji:inst|start5[9]                ; xunji:inst|start5[12]               ; clk          ; clk         ; 0.000        ; 0.000      ; 0.718      ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                                    ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                  ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|flag                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|flag                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|right_wheel_PWM_OUT          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|right_wheel_PWM_OUT          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[0]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[10]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[10]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[11]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[11]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[12]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[12]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[13]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[13]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[1]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[2]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[2]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[3]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[3]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[4]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[4]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[5]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[5]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[6]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[6]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[7]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[7]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[8]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[8]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|start5[9]                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|start5[9]                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[0]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[0]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[10]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[10]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[11]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[11]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[12]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[12]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[13]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[13]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[14]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[14]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[15]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[15]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[16]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[16]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[17]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[17]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[18]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[18]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[19]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[19]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[1]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[1]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[2]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[2]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[3]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[3]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[4]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[4]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[5]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[5]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[6]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[6]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[7]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[7]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[8]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[8]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[9]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter[9]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_PWM_counter_out[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|steering_engine_PWM_OUT      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|steering_engine_PWM_OUT      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[0]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[1]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[2]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[3]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[4]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[4]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[5]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[5]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[6]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[6]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[7]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[7]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[8]             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[8]             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; xunji:inst|wheel_PWM_OUT[9]             ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; midyou    ; clk        ; 3.434 ; 3.434 ; Rise       ; clk             ;
+; midzuo    ; clk        ; 3.394 ; 3.394 ; Rise       ; clk             ;
+; tail      ; clk        ; 3.013 ; 3.013 ; Rise       ; clk             ;
+; you       ; clk        ; 3.387 ; 3.387 ; Rise       ; clk             ;
+; zuo       ; clk        ; 3.364 ; 3.364 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; midyou    ; clk        ; -2.165 ; -2.165 ; Rise       ; clk             ;
+; midzuo    ; clk        ; -2.123 ; -2.123 ; Rise       ; clk             ;
+; tail      ; clk        ; -2.242 ; -2.242 ; Rise       ; clk             ;
+; you       ; clk        ; -2.120 ; -2.120 ; Rise       ; clk             ;
+; zuo       ; clk        ; -2.057 ; -2.057 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 3.893 ; 3.893 ; Rise       ; clk             ;
+; right     ; clk        ; 4.020 ; 4.020 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 3.893 ; 3.893 ; Rise       ; clk             ;
+; right     ; clk        ; 4.020 ; 4.020 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -3.572   ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+;  clk             ; -3.572   ; 0.215 ; N/A      ; N/A     ; -1.631              ;
+; Design-wide TNS  ; -144.432 ; 0.0   ; 0.0      ; 0.0     ; -62.731             ;
+;  clk             ; -144.432 ; 0.000 ; N/A      ; N/A     ; -62.731             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; midyou    ; clk        ; 7.784 ; 7.784 ; Rise       ; clk             ;
+; midzuo    ; clk        ; 7.694 ; 7.694 ; Rise       ; clk             ;
+; tail      ; clk        ; 6.615 ; 6.615 ; Rise       ; clk             ;
+; you       ; clk        ; 7.696 ; 7.696 ; Rise       ; clk             ;
+; zuo       ; clk        ; 7.545 ; 7.545 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; midyou    ; clk        ; -2.165 ; -2.165 ; Rise       ; clk             ;
+; midzuo    ; clk        ; -2.123 ; -2.123 ; Rise       ; clk             ;
+; tail      ; clk        ; -2.242 ; -2.242 ; Rise       ; clk             ;
+; you       ; clk        ; -2.120 ; -2.120 ; Rise       ; clk             ;
+; zuo       ; clk        ; -2.057 ; -2.057 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 7.636 ; 7.636 ; Rise       ; clk             ;
+; right     ; clk        ; 7.909 ; 7.909 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; duoji     ; clk        ; 3.893 ; 3.893 ; Rise       ; clk             ;
+; right     ; clk        ; 4.020 ; 4.020 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1558     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1558     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 5     ; 5    ;
+; Unconstrained Input Port Paths  ; 92    ; 92   ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
+    Info: Processing started: Sat Aug 12 13:56:02 2017
+Info: Command: quartus_sta xunji -c xunji
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'xunji.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -3.572
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.572      -144.432 clk 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631       -62.731 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.810
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.810       -27.032 clk 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -51.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 469 megabytes
+    Info: Processing ended: Sat Aug 12 13:56:03 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
