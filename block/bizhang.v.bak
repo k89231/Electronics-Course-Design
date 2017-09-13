@@ -1,0 +1,356 @@
+module bizhang(clk,left_wheel_PWM_OUT,right_wheel_PWM_OUT,rst,left_echo,right_echo,mid_echo,fire,steering_engine_PWM_OUT,switch);
+//申明端口分别有：系统时钟50MHZ，复位，调节后轮目标速度的拨码开关,右光电,左光电,LED显示，led,舵机输出PWM值，右后轮电机PWM输出，左后轮PWM输出，
+/**********************************************************************/						
+		input		clk;
+		input    rst;
+		input		[20:0]left_echo;
+		input 	[20:0]right_echo; 
+		input    [20:0]mid_echo;
+
+		
+		input		[3:0]switch;
+		input		[4:0]fire;
+/***********************************************************************/	
+		//output      [3:0]     			 led;		
+
+		output reg right_wheel_PWM_OUT;
+		output reg left_wheel_PWM_OUT;
+		output reg steering_engine_PWM_OUT;
+/***********************************************************************/
+	//	reg         [3:0]     			 led;
+		reg   [19:0] 	steering_PWM_counter;
+		reg   [19:0] 	steering_PWM_counter_out;
+		reg   [9:0]		wheel_PWM_OUT;
+
+
+//电机		
+always @(posedge clk or negedge rst)							//后轮输出控制
+begin 
+	if(!rst)
+	wheel_PWM_OUT <= 10'd0;
+		else if(wheel_PWM_OUT <= 10'd5000 )
+		begin
+			wheel_PWM_OUT <= wheel_PWM_OUT + 1'b1;
+			if(switch==4'b0000)
+			begin
+				if(wheel_PWM_OUT<=10'd200)//40%
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				else 
+					begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				
+				else if(switch==4'b0001)
+				begin
+					if(wheel_PWM_OUT<=10'd380)//30%
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else 
+					begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <=	1'b0;
+						end
+				end
+				
+				else if(switch==4'b0011)
+				begin
+					if(wheel_PWM_OUT<=10'd400)//10%
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else if(switch==4'b0111)
+				begin
+					if(wheel_PWM_OUT<=10'd420)//20%
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <=1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else if(switch==4'b1111)
+				begin
+					if(wheel_PWM_OUT<=10'd600)//20%
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <=1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else 
+				begin
+				if(wheel_PWM_OUT<=10'd200)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end  
+			end
+			else 
+			wheel_PWM_OUT <= 10'b0;
+		 end
+		 		 
+/***********************************************************************/
+always @(posedge clk or negedge rst)							//舵机最后输出控制
+	begin 
+	if(!rst)
+			begin
+				steering_PWM_counter <= 20'd0;
+				steering_PWM_counter_out<= 9_5000;  //0
+				if(steering_PWM_counter <= steering_PWM_counter_out)
+					steering_engine_PWM_OUT <= 1'b1;
+				else
+					steering_engine_PWM_OUT <= 1'b0;
+				end
+	else if(steering_PWM_counter <=20'd100_0000)
+			begin
+				steering_PWM_counter <= steering_PWM_counter + 1'b1;
+				
+				if(mid_echo<30)
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//40°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end
+					
+				if(left_echo<30 && right_echo<30)
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//40°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end
+				
+			
+				
+				else if(left_echo<30 &&right_echo>=30)
+						begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//40° 750000
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+						end
+				
+				
+				else if(left_echo>=30 && right_echo<30)
+							begin
+							steering_PWM_counter_out <= 20'd12_5000	;	//-40°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+							
+				else if(left_echo>=30 && right_echo>=30)
+				begin
+				if(fire[2]==1'b1)//if(left_infrared == 1'b0 && right_infrared == 1'b0)
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//0°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end
+				else if(fire[1]==1'b1)//else if(left_infrared == 1'b1&& right_infrared == 1'b0)
+					begin
+						steering_PWM_counter_out <= 20'd8_5000	;	//30°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end	
+				else if(fire[0]==1'b1)//else if(left_infrared == 1'b1&& right_infrared == 1'b1 )
+					begin
+						steering_PWM_counter_out <= 20'd9_5000	;	//40°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+						end
+				else if(fire[3]==1'b1)//else if(left_infrared == 1'b0&& right_infrared== 1'b1 )
+					begin
+						steering_PWM_counter_out <= 20'd6_5000	;	//20°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+					end
+				else if(fire[4]==1'b1)//else if(left_infrared == 1'b0&& right_infrared== 1'b1 )
+					begin
+						steering_PWM_counter_out <= 20'd5_5000	;	//20°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+					end
+				end
+				/*begin
+					if(mid_right_infrared==1'b0&& right_infrared == 1'b0)
+				begin
+				if(left_infrared == 1'b0 && mid_left_infrared == 1'b0)
+					begin
+						steering_PWM_counter_out <= 20'd9_5000	;	//0°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end
+				else if(left_infrared == 1'b1&&mid_left_infrared == 1'b0)
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//30°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end	
+				else if(left_infrared == 1'b1&&mid_left_infrared == 1'b1 )
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//40°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+						end
+				else if(left_infrared == 1'b0&&mid_left_infrared == 1'b1 )
+					begin
+						steering_PWM_counter_out <= 20'd7_8000	;	//20°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+					end
+				end
+					
+				if(mid_right_infrared==1'b1&& right_infrared == 1'b0)
+					begin
+						if(left_infrared == 1'b1&&mid_left_infrared == 1'b1 )
+						begin
+							steering_PWM_counter_out <= 20'd7_8000;		//60°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0;
+							end
+						else if(left_infrared == 1'b0&&mid_left_infrared == 1'b1 )
+						begin
+							steering_PWM_counter_out <= 20'd7_8000;		//50°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0;
+							end
+						else if(left_infrared == 1'b0&&mid_left_infrared == 1'b0 )
+						begin
+							steering_PWM_counter_out <= 20'd12_0000;		//-30°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0;
+							end
+					end
+				 
+				if(mid_right_infrared==1'b1&& right_infrared == 1'b1)
+					begin
+						if(left_infrared == 1'b0&&mid_left_infrared == 1'b0 )
+							begin
+							steering_PWM_counter_out <= 20'd12_0000	;	//-30°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b0&&mid_left_infrared == 1'b1 )
+							begin
+							steering_PWM_counter_out <= 20'd11_5000	;	//-40°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b1&&mid_left_infrared == 1'b0 )
+							begin
+							steering_PWM_counter_out <= 20'd7_5000	;	//60°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b1&&mid_left_infrared == 1'b1 )
+							begin
+							steering_PWM_counter_out <= 20'd9_5000	;	//-60°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+					end
+						
+				if(mid_right_infrared==1'b1&& right_infrared == 1'b1)
+					begin
+						if(left_infrared == 1'b0&&mid_left_infrared == 1'b0 )
+							begin
+							steering_PWM_counter_out <= 20'd7_5000	;	//-30°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b0&&mid_left_infrared == 1'b1 )
+							begin
+							steering_PWM_counter_out <= 20'd11_5000	;	//-40°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b1&&mid_left_infrared == 1'b0 )
+							begin
+							steering_PWM_counter_out <= 20'd11_5000	;	//-40°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						else if(left_infrared == 1'b1&&mid_left_infrared == 1'b1 )
+							begin
+							steering_PWM_counter_out <= 20'd7_5000	;	//30°
+							if(steering_PWM_counter <= steering_PWM_counter_out)
+								steering_engine_PWM_OUT <= 1'b1;
+							else
+								steering_engine_PWM_OUT <= 1'b0; 
+							end
+						end
+				*/
+				
+			end
+		else
+				steering_PWM_counter  <= 20'b0;
+
+		end
+		endmodule

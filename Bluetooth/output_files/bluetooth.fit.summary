@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Aug 11 14:09:42 2017
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
+Revision Name : bluetooth
+Top-level Entity Name : bluetooth
+Family : Cyclone II
+Device : EP2C5Q208C8
+Timing Models : Final
+Total logic elements : 254 / 4,608 ( 6 % )
+    Total combinational functions : 250 / 4,608 ( 5 % )
+    Dedicated logic registers : 118 / 4,608 ( 3 % )
+Total registers : 118
+Total pins : 17 / 142 ( 12 % )
+Total virtual pins : 0
+Total memory bits : 0 / 119,808 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

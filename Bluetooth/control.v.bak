@@ -1,0 +1,168 @@
+module control(rst,clk,steering_engine_PWM_OUT,right_wheel_PWM_OUT,left_wheel_PWM_OUT,blueteeth);
+
+input clk,rst ;
+input	[7:0]blueteeth;
+
+output	right_wheel_PWM_OUT ;
+output	left_wheel_PWM_OUT ;
+output	steering_engine_PWM_OUT ;
+
+reg	right_wheel_PWM_OUT ;
+reg	left_wheel_PWM_OUT ;
+reg	steering_engine_PWM_OUT ;
+//reg	[7:0]		blueteeth 	;
+reg	[19:0]	steering_PWM_counter ;
+reg	[19:0]	steering_PWM_counter_out;
+reg	[9:0]		wheel_PWM_OUT ;
+
+always @(posedge clk or negedge rst )
+begin
+if(!rst)
+	wheel_PWM_OUT <= 10'd0;
+	else if(wheel_PWM_OUT <= 10'd1000 )
+		begin
+			wheel_PWM_OUT <= wheel_PWM_OUT + 1'b1;
+			
+			if(blueteeth == 8'b00100001)
+			begin
+				if(wheel_PWM_OUT<=10'd100)//停车
+					begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				else 
+					begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				
+				else if(blueteeth == 8'b00100010)
+				begin
+					if(wheel_PWM_OUT<=10'd300)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else 
+					begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				
+				else if(blueteeth == 8'b00100011)
+				begin
+					if(wheel_PWM_OUT<=10'd400)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else if(blueteeth == 8'b00100100)
+				begin
+					if(wheel_PWM_OUT<=10'd500)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <=1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else if(blueteeth == 8'b00100110)
+				begin
+					if(wheel_PWM_OUT<=10'd600)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <=1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end
+				else begin
+				if(wheel_PWM_OUT<=10'd400)
+					begin
+						right_wheel_PWM_OUT <= 1'b1;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+					else begin
+						right_wheel_PWM_OUT <= 1'b0;
+						left_wheel_PWM_OUT  <= 1'b0;
+						end
+				end  
+			end
+			else 
+			wheel_PWM_OUT <= 10'b0;
+		 end
+
+
+		 
+
+always @(posedge clk or negedge rst)							//舵机最后输出控制
+begin 
+		if(!rst)
+			begin
+				steering_PWM_counter <= 20'd0;
+				steering_PWM_counter_out<= 9_5000;  //0
+				if(steering_PWM_counter <= steering_PWM_counter_out)
+					steering_engine_PWM_OUT <= 1'b1;
+				else
+					steering_engine_PWM_OUT <= 1'b0;
+				end
+		else if(steering_PWM_counter <=20'd100_0000)
+			begin
+			steering_PWM_counter <= steering_PWM_counter + 1'b1;
+				if(blueteeth == 8'b00100001||blueteeth == 8'b00100010||blueteeth == 8'b00100011||blueteeth == 8'b00100100)
+					begin
+						steering_PWM_counter_out <= 20'd9_5000	;	//0°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end
+				else if(blueteeth == 8'b01000001)
+					begin
+						steering_PWM_counter_out <= 20'd10_5000	;	//-45°
+					if(steering_PWM_counter <= steering_PWM_counter_out)
+						steering_engine_PWM_OUT <= 1'b1;
+					else
+						steering_engine_PWM_OUT <= 1'b0;
+					end	
+				else if(blueteeth == 8'b01000010)
+					begin
+						steering_PWM_counter_out <= 20'd12_5000	;	//-90°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+					end 
+				else if(blueteeth == 8'b01100001 )
+					begin
+						steering_PWM_counter_out <= 20'd8_5000	;	//45.
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+						end
+				else 
+					begin
+						steering_PWM_counter_out <= 20'd7_5000	;	//90°
+						if(steering_PWM_counter <= steering_PWM_counter_out)
+							steering_engine_PWM_OUT <= 1'b1;
+						else
+							steering_engine_PWM_OUT <= 1'b0;
+					end
+			end
+				else
+					steering_PWM_counter  <= 20'b0;
+		end
+endmodule
+					

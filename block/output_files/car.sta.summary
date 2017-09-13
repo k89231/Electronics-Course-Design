@@ -1,0 +1,245 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'ultrasonic_new:inst8|clk'
+Slack : -58.149
+TNS   : -482.432
+
+Type  : Slow Model Setup 'ultrasonic_new:inst11|clk'
+Slack : -57.937
+TNS   : -479.895
+
+Type  : Slow Model Setup 'ultrasonic_new:inst|clk'
+Slack : -57.159
+TNS   : -470.616
+
+Type  : Slow Model Setup 'clk'
+Slack : -10.017
+TNS   : -679.433
+
+Type  : Slow Model Setup 'ultrasonic_new:inst|clk62'
+Slack : -3.288
+TNS   : -39.149
+
+Type  : Slow Model Setup 'ultrasonic_new:inst8|clk62'
+Slack : -2.830
+TNS   : -35.013
+
+Type  : Slow Model Setup 'ultrasonic_new:inst|clk61'
+Slack : -2.687
+TNS   : -26.917
+
+Type  : Slow Model Setup 'ultrasonic_new:inst11|clk61'
+Slack : -2.429
+TNS   : -26.220
+
+Type  : Slow Model Setup 'ultrasonic_new:inst8|clk61'
+Slack : -2.425
+TNS   : -26.109
+
+Type  : Slow Model Setup 'ultrasonic_new:inst11|clk62'
+Slack : -1.806
+TNS   : -21.313
+
+Type  : Slow Model Hold 'ultrasonic_new:inst|clk61'
+Slack : -3.041
+TNS   : -3.041
+
+Type  : Slow Model Hold 'ultrasonic_new:inst11|clk61'
+Slack : -2.884
+TNS   : -2.884
+
+Type  : Slow Model Hold 'ultrasonic_new:inst8|clk61'
+Slack : -2.850
+TNS   : -2.850
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.618
+TNS   : -15.657
+
+Type  : Slow Model Hold 'ultrasonic_new:inst|clk'
+Slack : 0.092
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ultrasonic_new:inst11|clk'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ultrasonic_new:inst8|clk'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ultrasonic_new:inst11|clk62'
+Slack : 1.444
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ultrasonic_new:inst8|clk62'
+Slack : 2.296
+TNS   : 0.000
+
+Type  : Slow Model Hold 'ultrasonic_new:inst|clk62'
+Slack : 3.254
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.941
+TNS   : -304.677
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst11|clk'
+Slack : -0.742
+TNS   : -41.552
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst8|clk'
+Slack : -0.742
+TNS   : -41.552
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst|clk'
+Slack : -0.742
+TNS   : -41.552
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst11|clk62'
+Slack : -0.742
+TNS   : -22.260
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst8|clk62'
+Slack : -0.742
+TNS   : -22.260
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst11|clk61'
+Slack : -0.742
+TNS   : -20.776
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst8|clk61'
+Slack : -0.742
+TNS   : -20.776
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst|clk61'
+Slack : -0.742
+TNS   : -20.776
+
+Type  : Slow Model Minimum Pulse Width 'ultrasonic_new:inst|clk62'
+Slack : -0.742
+TNS   : -20.776
+
+Type  : Fast Model Setup 'ultrasonic_new:inst11|clk'
+Slack : -17.492
+TNS   : -135.152
+
+Type  : Fast Model Setup 'ultrasonic_new:inst8|clk'
+Slack : -17.367
+TNS   : -133.712
+
+Type  : Fast Model Setup 'ultrasonic_new:inst|clk'
+Slack : -17.177
+TNS   : -132.102
+
+Type  : Fast Model Setup 'clk'
+Slack : -2.280
+TNS   : -97.000
+
+Type  : Fast Model Setup 'ultrasonic_new:inst|clk62'
+Slack : -0.751
+TNS   : -8.272
+
+Type  : Fast Model Setup 'ultrasonic_new:inst8|clk62'
+Slack : -0.372
+TNS   : -3.104
+
+Type  : Fast Model Setup 'ultrasonic_new:inst11|clk61'
+Slack : -0.147
+TNS   : -0.639
+
+Type  : Fast Model Setup 'ultrasonic_new:inst8|clk61'
+Slack : -0.142
+TNS   : -0.648
+
+Type  : Fast Model Setup 'ultrasonic_new:inst|clk61'
+Slack : -0.139
+TNS   : -0.720
+
+Type  : Fast Model Setup 'ultrasonic_new:inst11|clk62'
+Slack : -0.064
+TNS   : -0.217
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.421
+TNS   : -8.487
+
+Type  : Fast Model Hold 'ultrasonic_new:inst11|clk61'
+Slack : -1.321
+TNS   : -1.321
+
+Type  : Fast Model Hold 'ultrasonic_new:inst8|clk61'
+Slack : -1.295
+TNS   : -1.295
+
+Type  : Fast Model Hold 'ultrasonic_new:inst|clk61'
+Slack : -1.144
+TNS   : -1.144
+
+Type  : Fast Model Hold 'ultrasonic_new:inst|clk'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ultrasonic_new:inst11|clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ultrasonic_new:inst8|clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ultrasonic_new:inst11|clk62'
+Slack : 0.518
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ultrasonic_new:inst8|clk62'
+Slack : 0.815
+TNS   : 0.000
+
+Type  : Fast Model Hold 'ultrasonic_new:inst|clk62'
+Slack : 1.398
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -205.380
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst11|clk'
+Slack : -0.500
+TNS   : -28.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst8|clk'
+Slack : -0.500
+TNS   : -28.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst|clk'
+Slack : -0.500
+TNS   : -28.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst11|clk62'
+Slack : -0.500
+TNS   : -15.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst8|clk62'
+Slack : -0.500
+TNS   : -15.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst11|clk61'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst8|clk61'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst|clk61'
+Slack : -0.500
+TNS   : -14.000
+
+Type  : Fast Model Minimum Pulse Width 'ultrasonic_new:inst|clk62'
+Slack : -0.500
+TNS   : -14.000
+
+------------------------------------------------------------

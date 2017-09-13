@@ -1,0 +1,93 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clk'
+Slack : -6.961
+TNS   : -248.914
+
+Type  : Slow Model Setup 'rst'
+Slack : -6.519
+TNS   : -6.519
+
+Type  : Slow Model Setup 'serial:inst2|clkbaud8x'
+Slack : -3.581
+TNS   : -91.139
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.585
+TNS   : -2.585
+
+Type  : Slow Model Hold 'serial:inst2|clkbaud8x'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'rst'
+Slack : 2.903
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clk'
+Slack : -0.334
+TNS   : -6.733
+
+Type  : Slow Model Removal 'clk'
+Slack : 0.136
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.941
+TNS   : -119.177
+
+Type  : Slow Model Minimum Pulse Width 'rst'
+Slack : -1.777
+TNS   : -1.777
+
+Type  : Slow Model Minimum Pulse Width 'serial:inst2|clkbaud8x'
+Slack : -0.742
+TNS   : -57.876
+
+Type  : Fast Model Setup 'rst'
+Slack : -1.626
+TNS   : -1.626
+
+Type  : Fast Model Setup 'clk'
+Slack : -1.233
+TNS   : -30.998
+
+Type  : Fast Model Setup 'serial:inst2|clkbaud8x'
+Slack : -0.539
+TNS   : -7.770
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.391
+TNS   : -1.553
+
+Type  : Fast Model Hold 'serial:inst2|clkbaud8x'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'rst'
+Slack : 1.278
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Fast Model Removal 'clk'
+Slack : -0.204
+TNS   : -5.081
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -80.380
+
+Type  : Fast Model Minimum Pulse Width 'rst'
+Slack : -1.222
+TNS   : -1.222
+
+Type  : Fast Model Minimum Pulse Width 'serial:inst2|clkbaud8x'
+Slack : -0.500
+TNS   : -39.000
+
+------------------------------------------------------------
